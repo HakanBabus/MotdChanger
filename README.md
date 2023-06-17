@@ -1,3 +1,6 @@
+# MotdChanger
+  The MotdChanger plugin aims to easily change the motd of the server. You can customize it with colors and add variables if you want.
+
 # Requirements
   - PocketMine Server (API 5)
 
