@@ -20,10 +20,12 @@ class Main extends PluginBase
         $time = $this->config->get("time");
         if($time == 0 or $time < 0 or count($this->config->get("motd")) == 0){
             $this->getServer()->getNetwork()->setName($this->getMotd());
-        }
-        $this->getScheduler()->scheduleRepeatingTask(new ClosureTask(function (): void{
+        }else{
             $this->getServer()->getNetwork()->setName($this->getMotd());
-        }), $time*20);
+            $this->getScheduler()->scheduleRepeatingTask(new ClosureTask(function (): void{
+                $this->getServer()->getNetwork()->setName($this->getMotd());
+            }), $time*20);
+        }
     }
 
     public function getMotd(): string
